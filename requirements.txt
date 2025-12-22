@@ -1,0 +1,7 @@
+discord.py
+motor
+aiohttp
+python-dotenv
+pytz
+certifi
+dnspython
