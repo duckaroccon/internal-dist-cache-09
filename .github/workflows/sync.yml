@@ -22,9 +22,10 @@ jobs:
       - env:
           DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
           MONGODB_URI: ${{ secrets.MONGODB_URI }}
+          PYTHONUNBUFFERED: 1
         run: timeout 21000s python main.py || true
 
-      - if: always() 
+      - if: always()
         run: |
           curl -X POST https://api.github.com/repos/${{ github.repository }}/dispatches \
           -H "Accept: application/vnd.github.v3+json" \
