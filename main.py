@@ -576,7 +576,7 @@ class JWTModal(Modal):
         self.add_item(InputText(label="JWT Token", style=InputTextStyle.paragraph, placeholder="Paste token...", required=True, min_length=20))
 
     async def callback(self, interaction: Interaction):
-        await interaction.followup.defer(ephemeral=True)
+        await interaction.response.defer(ephemeral=True)
         jwt = self.children[0].value.strip().replace('"', '')
         if not len(jwt.split('.')) == 3:
             await interaction.followup.send(embed=build_embed(f"{EMOJI_CROSS} Invalid Token", "Invalid JWT structure.", DUO_RED), ephemeral=True)
